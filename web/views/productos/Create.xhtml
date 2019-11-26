@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProductosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Modo de Pago</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreateProductosLabel_idProducto}" for="idProducto" />
+                    <h:inputText class="form-control" id="idProducto" value="#{productosController.selected.idProducto}" title="#{bundle.CreateProductosTitle_idProducto}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_idProducto}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">    
+                    <h:outputLabel class="label" value="#{bundle.CreateProductosLabel_name}" for="name" />
+                    <h:inputText class="form-control" id="name" value="#{productosController.selected.name}" title="#{bundle.CreateProductosTitle_name}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_name}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">    
+                    <h:outputLabel class="label" value="#{bundle.CreateProductosLabel_precio}" for="precio" />
+                    <h:inputText class="form-control" id="precio" value="#{productosController.selected.precio}" title="#{bundle.CreateProductosTitle_precio}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_precio}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">    
+                    <h:outputLabel class="label" value="#{bundle.CreateProductosLabel_stock}" for="stock" />
+                    <h:inputText class="form-control" id="stock" value="#{productosController.selected.stock}" title="#{bundle.CreateProductosTitle_stock}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_stock}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">    
+                    <h:outputLabel class="label" value="#{bundle.CreateProductosLabel_idCategoria}" for="idCategoria" />
+                    <h:selectOneMenu class="form-control" id="idCategoria" value="#{productosController.selected.idCategoria}" title="#{bundle.CreateProductosTitle_idCategoria}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_idCategoria}">
+                        <f:selectItems value="#{categoriasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    </div>
+                </div>
+                <br />
+            </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{productosController.create}" value="#{bundle.CreateProductosSaveLink}" />
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+                <br />
+                <br />
+                <h:commandLink class="btn btn-secondary" action="#{productosController.prepareList}" value="#{bundle.CreateProductosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.CreateProductosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

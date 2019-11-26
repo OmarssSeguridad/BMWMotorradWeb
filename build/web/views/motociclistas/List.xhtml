@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMotociclistasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMotociclistasEmpty}" rendered="#{motociclistasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{motociclistasController.items.rowCount > 0}">
+                    <h:outputText value="#{motociclistasController.pagination.pageFirstItem + 1}..#{motociclistasController.pagination.pageLastItem + 1}/#{motociclistasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{motociclistasController.previous}" value="#{bundle.Previous} #{motociclistasController.pagination.pageSize}" rendered="#{motociclistasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{motociclistasController.next}" value="#{bundle.Next} #{motociclistasController.pagination.pageSize}" rendered="#{motociclistasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{motociclistasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMotociclistasTitle_idMotociclista}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMotociclista}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMotociclistasTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMotociclistasTitle_ap}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ap}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMotociclistasTitle_am}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.am}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMotociclistasTitle_direccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMotociclistasTitle_fecNac}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecNac}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMotociclistasTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMotociclistasTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink class="btn btn-danger btn-fill pull-right" action="#{motociclistasController.prepareView}" value="#{bundle.ListMotociclistasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="btn btn-warning btn-fill pull-right" action="#{motociclistasController.prepareEdit}" value="#{bundle.ListMotociclistasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="btn btn-info btn-fill pull-right" action="#{motociclistasController.destroy}" value="#{bundle.ListMotociclistasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink class="btn btn-secondary" action="#{motociclistasController.prepareCreate}" value="#{bundle.ListMotociclistasCreateLink}"/>
+                <br />
+                <br />
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.ListMotociclistasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

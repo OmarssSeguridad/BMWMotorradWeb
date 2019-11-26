@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRutasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Modo de Pago</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreateRutasLabel_idRuta}" for="idRuta" />
+                    <h:inputText class="form-control" id="idRuta" value="#{rutasController.selected.idRuta}" title="#{bundle.CreateRutasTitle_idRuta}" required="true" requiredMessage="#{bundle.CreateRutasRequiredMessage_idRuta}"/>
+                    </div>
+                </div>
+
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">    
+                    <h:outputLabel class="label" value="#{bundle.CreateRutasLabel_name}" for="name" />
+                    <h:inputText class="form-control" id="name" value="#{rutasController.selected.name}" title="#{bundle.CreateRutasTitle_name}" required="true" requiredMessage="#{bundle.CreateRutasRequiredMessage_name}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">    
+                    <h:outputLabel class="label" value="#{bundle.CreateRutasLabel_detalle}" for="detalle" />
+                    <h:inputText class="form-control" id="detalle" value="#{rutasController.selected.detalle}" title="#{bundle.CreateRutasTitle_detalle}" required="true" requiredMessage="#{bundle.CreateRutasRequiredMessage_detalle}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">    
+                    <h:outputLabel class="label" value="#{bundle.CreateRutasLabel_createdAt}" for="createdAt" />
+                    <h:inputText class="form-control" id="createdAt" value="#{rutasController.selected.createdAt}" title="#{bundle.CreateRutasTitle_createdAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">    
+                    <h:outputLabel class="label" value="#{bundle.CreateRutasLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText class="form-control" id="updatedAt" value="#{rutasController.selected.updatedAt}" title="#{bundle.CreateRutasTitle_updatedAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    </div>
+                </div>
+                <br />
+            </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{rutasController.create}" value="#{bundle.CreateRutasSaveLink}" />
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>    
+                <br />
+                <br />
+                <h:commandLink class="btn btn-secondary" action="#{rutasController.prepareList}" value="#{bundle.CreateRutasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.CreateRutasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

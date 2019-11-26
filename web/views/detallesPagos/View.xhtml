@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDetallesPagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDetallesPagosLabel_idDetalle}"/>
+                    <h:outputText value="#{detallesPagosController.selected.idDetalle}" title="#{bundle.ViewDetallesPagosTitle_idDetalle}"/>
+                    <h:outputText value="#{bundle.ViewDetallesPagosLabel_cantidad}"/>
+                    <h:outputText value="#{detallesPagosController.selected.cantidad}" title="#{bundle.ViewDetallesPagosTitle_cantidad}"/>
+                    <h:outputText value="#{bundle.ViewDetallesPagosLabel_precio}"/>
+                    <h:outputText value="#{detallesPagosController.selected.precio}" title="#{bundle.ViewDetallesPagosTitle_precio}"/>
+                    <h:outputText value="#{bundle.ViewDetallesPagosLabel_idPago}"/>
+                    <h:outputText value="#{detallesPagosController.selected.idPago}" title="#{bundle.ViewDetallesPagosTitle_idPago}"/>
+                    <h:outputText value="#{bundle.ViewDetallesPagosLabel_idProducto}"/>
+                    <h:outputText value="#{detallesPagosController.selected.idProducto}" title="#{bundle.ViewDetallesPagosTitle_idProducto}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detallesPagosController.destroyAndView}" value="#{bundle.ViewDetallesPagosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDetallesPagosEditLink}"/>
+                <br />
+                <h:commandLink action="#{detallesPagosController.prepareCreate}" value="#{bundle.ViewDetallesPagosCreateLink}" />
+                <br />
+                <h:commandLink action="#{detallesPagosController.prepareList}" value="#{bundle.ViewDetallesPagosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDetallesPagosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

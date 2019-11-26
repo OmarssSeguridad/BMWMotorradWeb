@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDetallesRutasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDetallesRutasEmpty}" rendered="#{detallesRutasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{detallesRutasController.items.rowCount > 0}">
+                    <h:outputText value="#{detallesRutasController.pagination.pageFirstItem + 1}..#{detallesRutasController.pagination.pageLastItem + 1}/#{detallesRutasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{detallesRutasController.previous}" value="#{bundle.Previous} #{detallesRutasController.pagination.pageSize}" rendered="#{detallesRutasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{detallesRutasController.next}" value="#{bundle.Next} #{detallesRutasController.pagination.pageSize}" rendered="#{detallesRutasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{detallesRutasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesRutasTitle_idDetalleruta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idDetalleruta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesRutasTitle_status}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesRutasTitle_idImagenes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idImagenes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesRutasTitle_idMotociclista}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMotociclista}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesRutasTitle_idRuta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRuta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{detallesRutasController.prepareView}" value="#{bundle.ListDetallesRutasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detallesRutasController.prepareEdit}" value="#{bundle.ListDetallesRutasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detallesRutasController.destroy}" value="#{bundle.ListDetallesRutasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{detallesRutasController.prepareCreate}" value="#{bundle.ListDetallesRutasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDetallesRutasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

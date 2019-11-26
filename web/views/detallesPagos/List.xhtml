@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDetallesPagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDetallesPagosEmpty}" rendered="#{detallesPagosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{detallesPagosController.items.rowCount > 0}">
+                    <h:outputText value="#{detallesPagosController.pagination.pageFirstItem + 1}..#{detallesPagosController.pagination.pageLastItem + 1}/#{detallesPagosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{detallesPagosController.previous}" value="#{bundle.Previous} #{detallesPagosController.pagination.pageSize}" rendered="#{detallesPagosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{detallesPagosController.next}" value="#{bundle.Next} #{detallesPagosController.pagination.pageSize}" rendered="#{detallesPagosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{detallesPagosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesPagosTitle_idDetalle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idDetalle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesPagosTitle_cantidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesPagosTitle_precio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesPagosTitle_idPago}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPago}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesPagosTitle_idProducto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProducto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{detallesPagosController.prepareView}" value="#{bundle.ListDetallesPagosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detallesPagosController.prepareEdit}" value="#{bundle.ListDetallesPagosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detallesPagosController.destroy}" value="#{bundle.ListDetallesPagosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{detallesPagosController.prepareCreate}" value="#{bundle.ListDetallesPagosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDetallesPagosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

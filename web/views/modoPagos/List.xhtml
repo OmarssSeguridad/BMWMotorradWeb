@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListModoPagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListModoPagosEmpty}" rendered="#{modoPagosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{modoPagosController.items.rowCount > 0}">
+                    <h:outputText value="#{modoPagosController.pagination.pageFirstItem + 1}..#{modoPagosController.pagination.pageLastItem + 1}/#{modoPagosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{modoPagosController.previous}" value="#{bundle.Previous} #{modoPagosController.pagination.pageSize}" rendered="#{modoPagosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{modoPagosController.next}" value="#{bundle.Next} #{modoPagosController.pagination.pageSize}" rendered="#{modoPagosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{modoPagosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListModoPagosTitle_idModopago}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idModopago}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListModoPagosTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListModoPagosTitle_detalle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.detalle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink class="btn btn-danger btn-fill pull-right" action="#{modoPagosController.prepareView}" value="#{bundle.ListModoPagosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="btn btn-warning btn-fill pull-right" action="#{modoPagosController.prepareEdit}" value="#{bundle.ListModoPagosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="btn btn-info btn-fill pull-right" action="#{modoPagosController.destroy}" value="#{bundle.ListModoPagosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink class="btn btn-secondary" action="#{modoPagosController.prepareCreate}" value="#{bundle.ListModoPagosCreateLink}"/>
+                <br />
+                <br />
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.ListModoPagosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

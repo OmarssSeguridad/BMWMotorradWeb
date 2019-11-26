@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRutasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRutasEmpty}" rendered="#{rutasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{rutasController.items.rowCount > 0}">
+                    <h:outputText value="#{rutasController.pagination.pageFirstItem + 1}..#{rutasController.pagination.pageLastItem + 1}/#{rutasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{rutasController.previous}" value="#{bundle.Previous} #{rutasController.pagination.pageSize}" rendered="#{rutasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{rutasController.next}" value="#{bundle.Next} #{rutasController.pagination.pageSize}" rendered="#{rutasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{rutasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRutasTitle_idRuta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRuta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRutasTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRutasTitle_detalle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.detalle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRutasTitle_createdAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createdAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRutasTitle_updatedAt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.updatedAt}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink class="btn btn-danger btn-fill pull-right" action="#{rutasController.prepareView}" value="#{bundle.ListRutasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="btn btn-warning btn-fill pull-right" action="#{rutasController.prepareEdit}" value="#{bundle.ListRutasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="btn btn-info btn-fill pull-right" action="#{rutasController.destroy}" value="#{bundle.ListRutasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink class="btn btn-secondary" action="#{rutasController.prepareCreate}" value="#{bundle.ListRutasCreateLink}"/>
+                <br />
+                <br />
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.ListRutasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

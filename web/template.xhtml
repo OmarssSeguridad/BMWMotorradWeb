@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="shortcut icon" type="image/x-icon" href="../../views/resources/img/bmwlogo.png" />
+        <meta charset="utf-8"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+        <!--icons -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="./../views/resources/css/estilosOmi.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="./../views/resources/css/bootstrap.min.css"/>-->
+        <link rel="stylesheet" type="text/css" href="./../views/resources/css/smoke.css"/>
+        <link rel="stylesheet" type="text/css" href="./../views/resources/css/Slider.css"/>
+        <script type="text/javascript" src="./../views/resources/js/jquery.js"></script>
+        <!--  <script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+        <script type="text/javascript" src="./../views/resources/js/smoke.js"></script>
+        <script type="text/javascript" src="./../views/resources/lang/es.js"></script>
+        
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+                    <a class="navbar-brand" href="#">
+                        <img src="./../views/resources/img/logos/logoBMWMotorrad.jpg" alt="logo" style="width:100px;"/> 
+                    </a>  
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <h5 class="h5" style="color: white;">BMW Club Motorrad Metepec</h5>
+                        <ul class="navbar-nav">
+                           <!--
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Categorias
+                                </a>
+                                <div class="dropdown-menu">
+                                    <h:link class="dropdown-item" outcome="/views/categorias/List" value="Categorias"/>
+                                    <h:link class="dropdown-item" outcome="/views/detallesPagos/List" value="Detalle Pagos"/>
+                                    <h:link class="dropdown-item" outcome="/views/detallesRutas/List" value="Detalle Rutas"/>
+                                    <h:link class="dropdown-item"  outcome="/views/imagenes/List" value="Imagenes"/>
+                                    <h:link class="dropdown-item" outcome="/views/modoPagos/List" value="Modo Pagos"/>
+                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Motociclistas"/>
+                                    <h:link class="dropdown-item" outcome="/views/pagos/List" value="Pagos"/>
+                                    <h:link class="dropdown-item" outcome="/views/productos/List" value="Productos"/>
+                                    <h:link class="dropdown-item" outcome="/views/rutas/List" value="Rutas"/>
+                                    <h:link class="dropdown-item" outcome="/views/users/List" value="Users"/>
+                                </div>
+                            </li>
+                           -->
+                           <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Categorias
+                                </a>
+                                 <div class="dropdown-menu">
+                                    <h:link class="dropdown-item" outcome="/views/categorias/Create" value="Altas"/>
+                                    <h:link class="dropdown-item" outcome="/views/categorias/List" value="Bajas"/>
+                                    <h:link class="dropdown-item" outcome="/views/categorias/List" value="Consultas"/>
+                                    <h:link class="dropdown-item"  outcome="/views/categorias/List" value="Modificaciones"/>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Pagos
+                                </a>
+                                 <div class="dropdown-menu">
+                                    <h:link class="dropdown-item" outcome="/views/pagos/Create" value="Altas"/>
+                                    <h:link class="dropdown-item" outcome="/views/pagos/List" value="Bajas"/>
+                                    <h:link class="dropdown-item" outcome="/views/pagos/List" value="Consultas"/>
+                                    <h:link class="dropdown-item"  outcome="/views/pagos/List" value="Modificaciones"/>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Modo de Pago
+                                </a>
+                                <div class="dropdown-menu">
+                                    <h:link class="dropdown-item" outcome="/views/modoPagos/Create" value="Altas"/>
+                                    <h:link class="dropdown-item" outcome="/views/detallesPagos/List" value="Bajas"/>
+                                    <h:link class="dropdown-item" outcome="/views/detallesRutas/List" value="Consultas"/>
+                                    <h:link class="dropdown-item"  outcome="/views/imagenes/List" value="Modificaciones"/>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Motociclista
+                                </a>
+                                <div class="dropdown-menu">
+                                    <h:link class="dropdown-item" outcome="/views/motociclistas/Create" value="Altas"/>
+                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Bajas"/>
+                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Consultas"/>
+                                    <h:link class="dropdown-item"  outcome="/views/motociclistas/List" value="Modificaciones"/>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Productos
+                                </a>
+                                <div class="dropdown-menu">
+                                    <h:link class="dropdown-item" outcome="/views/productos/Create" value="Altas"/>
+                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Bajas"/>
+                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Consultas"/>
+                                    <h:link class="dropdown-item"  outcome="/views/motociclistas/List" value="Modificaciones"/>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Rutas
+                                </a>
+                                <div class="dropdown-menu">
+                                    <h:link class="dropdown-item" outcome="/views/rutas/Create" value="Altas"/>
+                                    <h:link class="dropdown-item" outcome="/views/rutas/List" value="Bajas"/>
+                                    <h:link class="dropdown-item" outcome="/views/rutas/List" value="Consultas"/>
+                                    <h:link class="dropdown-item"  outcome="/views/rutas/List" value="Modificaciones"/>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                    Usuarios
+                                </a>
+                                <div class="dropdown-menu">
+                                    <h:link class="dropdown-item" outcome="/views/users/Create" value="Altas"/>
+                                    <h:link class="dropdown-item" outcome="/views/users/List" value="Bajas"/>
+                                    <h:link class="dropdown-item" outcome="/views/users/List" value="Consultas"/>
+                                    <h:link class="dropdown-item"  outcome="/views/users/List" value="Modificaciones"/>
+                                </div>
+                            </li>
+                            <li class="nav-item" style=" align-content: right">
+
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </ui:insert>
+        </div>
+        <center>
+        <div class="container">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <ui:insert name="content">
+                    </ui:insert>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </center>
+        <div id="bottom">
+            <ui:insert name="bottom">
+
+                <footer class="section footer-classic context-dark bg-image">
+                    <div class="container">
+                        <div class="row row-30">
+                            <div class="col-md-4 col-xl-5">
+                                <div class="pr-xl-4">
+                                    <br/>
+                                    <p style="color: white;"><img src="./../views/resources/img/logoBMWMotorrad.jpg" alt="logo" style="width:250px;"/></p>
+                                    <!-- Rights-->
+                                    <p class="rights" style="color: white;"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>BMW</span><span>. </span><span>All Rights Reserved.</span></p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="h5">Contacto</h5>
+                                <dl class="contact-list">
+                                    <dt class="dt">Dirección:</dt>
+
+                                    <dd>Prol 5 de Mayo 1543, Electricistas Locales, 50140 Toluca de Lerdo, Méx.</dd>
+                                </dl>
+                                <dl class="contact-list">
+                                    <dt class="dt">Correo:</dt>
+                                    <dd><a href="mailto:#">contacto@motorradmetepec.mx</a></dd>
+
+                                </dl>
+                                <dl class="contact-list">
+                                    <dt>Teléfono:</dt>
+                                    <dd><a href="tel:#">+52 7222769006</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-4 col-xl-3">
+                                <h5>Links</h5>
+                                <ul class="nav-list">
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <li><a href="nosotros.html">Quienes Somos</a></li>
+                                    <li><a href="rutas.html">Ruta</a></li>
+                                    <li><a href="galeria.html">Galería</a></li>
+                                    <li><a href="unete.html">Únete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+            </ui:insert>
+        </div>
+
+    </h:body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./../views/resources/js/valbut.js"></script>
+    <script type="text/javascript" src="./../views/resources/js/slider.js"></script>
+    <!--Carrito -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="./../views/resources/js/main.js"></script>
+</html>

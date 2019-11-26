@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCategoriasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCategoriasLabel_idCategoria}" for="idCategoria" />
+                    <h:inputText id="idCategoria" value="#{categoriasController.selected.idCategoria}" title="#{bundle.EditCategoriasTitle_idCategoria}" required="true" requiredMessage="#{bundle.EditCategoriasRequiredMessage_idCategoria}"/>
+                    <h:outputLabel value="#{bundle.EditCategoriasLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{categoriasController.selected.name}" title="#{bundle.EditCategoriasTitle_name}" required="true" requiredMessage="#{bundle.EditCategoriasRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditCategoriasLabel_detalle}" for="detalle" />
+                    <h:inputText id="detalle" value="#{categoriasController.selected.detalle}" title="#{bundle.EditCategoriasTitle_detalle}" required="true" requiredMessage="#{bundle.EditCategoriasRequiredMessage_detalle}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{categoriasController.update}" value="#{bundle.EditCategoriasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCategoriasViewLink}"/>
+                <br />
+                <h:commandLink action="#{categoriasController.prepareList}" value="#{bundle.EditCategoriasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCategoriasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

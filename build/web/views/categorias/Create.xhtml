@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCategoriasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+            <br/>
+            <br/>
+
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Categoria</h4>
+            </div>
+            <center>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreateCategoriasLabel_idCategoria}" for="idCategoria" />
+                    <h:inputText class="form-control"  id="idCategoria" value="#{categoriasController.selected.idCategoria}" title="#{bundle.CreateCategoriasTitle_idCategoria}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_idCategoria}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreateCategoriasLabel_name}" for="name" />
+                    <h:inputText class="form-control" id="name" value="#{categoriasController.selected.name}" title="#{bundle.CreateCategoriasTitle_name}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_name}"/>
+                    </div>
+                </div>
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label" value="#{bundle.CreateCategoriasLabel_detalle}" for="detalle" />
+                    <h:inputText class="form-control" id="detalle" value="#{categoriasController.selected.detalle}" title="#{bundle.CreateCategoriasTitle_detalle}" required="true" requiredMessage="#{bundle.CreateCategoriasRequiredMessage_detalle}"/>
+                    </div>
+                </div>
+                <br />
+            </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right"  action="#{categoriasController.create}" value="#{bundle.CreateCategoriasSaveLink}" />
+                 </div>
+                 </center>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+                <br />
+                <br />
+                <h:commandLink class="btn btn-secondary" action="#{categoriasController.prepareList}" value="#{bundle.CreateCategoriasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.CreateCategoriasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

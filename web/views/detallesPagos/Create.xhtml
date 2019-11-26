@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDetallesPagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDetallesPagosLabel_idDetalle}" for="idDetalle" />
+                    <h:inputText id="idDetalle" value="#{detallesPagosController.selected.idDetalle}" title="#{bundle.CreateDetallesPagosTitle_idDetalle}" required="true" requiredMessage="#{bundle.CreateDetallesPagosRequiredMessage_idDetalle}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallesPagosLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{detallesPagosController.selected.cantidad}" title="#{bundle.CreateDetallesPagosTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateDetallesPagosRequiredMessage_cantidad}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallesPagosLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{detallesPagosController.selected.precio}" title="#{bundle.CreateDetallesPagosTitle_precio}" required="true" requiredMessage="#{bundle.CreateDetallesPagosRequiredMessage_precio}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallesPagosLabel_idPago}" for="idPago" />
+                    <h:selectOneMenu id="idPago" value="#{detallesPagosController.selected.idPago}" title="#{bundle.CreateDetallesPagosTitle_idPago}" required="true" requiredMessage="#{bundle.CreateDetallesPagosRequiredMessage_idPago}">
+                        <f:selectItems value="#{pagosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetallesPagosLabel_idProducto}" for="idProducto" />
+                    <h:selectOneMenu id="idProducto" value="#{detallesPagosController.selected.idProducto}" title="#{bundle.CreateDetallesPagosTitle_idProducto}" required="true" requiredMessage="#{bundle.CreateDetallesPagosRequiredMessage_idProducto}">
+                        <f:selectItems value="#{productosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detallesPagosController.create}" value="#{bundle.CreateDetallesPagosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{detallesPagosController.prepareList}" value="#{bundle.CreateDetallesPagosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDetallesPagosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

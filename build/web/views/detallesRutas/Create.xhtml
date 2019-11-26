@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDetallesRutasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDetallesRutasLabel_idDetalleruta}" for="idDetalleruta" />
+                    <h:inputText id="idDetalleruta" value="#{detallesRutasController.selected.idDetalleruta}" title="#{bundle.CreateDetallesRutasTitle_idDetalleruta}" required="true" requiredMessage="#{bundle.CreateDetallesRutasRequiredMessage_idDetalleruta}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallesRutasLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{detallesRutasController.selected.status}" title="#{bundle.CreateDetallesRutasTitle_status}" required="true" requiredMessage="#{bundle.CreateDetallesRutasRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallesRutasLabel_idImagenes}" for="idImagenes" />
+                    <h:selectOneMenu id="idImagenes" value="#{detallesRutasController.selected.idImagenes}" title="#{bundle.CreateDetallesRutasTitle_idImagenes}" required="true" requiredMessage="#{bundle.CreateDetallesRutasRequiredMessage_idImagenes}">
+                        <f:selectItems value="#{imagenesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetallesRutasLabel_idMotociclista}" for="idMotociclista" />
+                    <h:selectOneMenu id="idMotociclista" value="#{detallesRutasController.selected.idMotociclista}" title="#{bundle.CreateDetallesRutasTitle_idMotociclista}" required="true" requiredMessage="#{bundle.CreateDetallesRutasRequiredMessage_idMotociclista}">
+                        <f:selectItems value="#{motociclistasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetallesRutasLabel_idRuta}" for="idRuta" />
+                    <h:selectOneMenu id="idRuta" value="#{detallesRutasController.selected.idRuta}" title="#{bundle.CreateDetallesRutasTitle_idRuta}" required="true" requiredMessage="#{bundle.CreateDetallesRutasRequiredMessage_idRuta}">
+                        <f:selectItems value="#{rutasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detallesRutasController.create}" value="#{bundle.CreateDetallesRutasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{detallesRutasController.prepareList}" value="#{bundle.CreateDetallesRutasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDetallesRutasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

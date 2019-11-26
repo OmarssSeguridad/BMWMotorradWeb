@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewModoPagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewModoPagosLabel_idModopago}"/>
+                    <h:outputText value="#{modoPagosController.selected.idModopago}" title="#{bundle.ViewModoPagosTitle_idModopago}"/>
+                    <h:outputText value="#{bundle.ViewModoPagosLabel_name}"/>
+                    <h:outputText value="#{modoPagosController.selected.name}" title="#{bundle.ViewModoPagosTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewModoPagosLabel_detalle}"/>
+                    <h:outputText value="#{modoPagosController.selected.detalle}" title="#{bundle.ViewModoPagosTitle_detalle}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{modoPagosController.destroyAndView}" value="#{bundle.ViewModoPagosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewModoPagosEditLink}"/>
+                <br />
+                <h:commandLink action="#{modoPagosController.prepareCreate}" value="#{bundle.ViewModoPagosCreateLink}" />
+                <br />
+                <h:commandLink action="#{modoPagosController.prepareList}" value="#{bundle.ViewModoPagosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewModoPagosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

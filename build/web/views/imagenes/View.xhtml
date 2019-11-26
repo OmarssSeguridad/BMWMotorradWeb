@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/views/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewImagenesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewImagenesLabel_idImagenes}"/>
+                    <h:outputText value="#{imagenesController.selected.idImagenes}" title="#{bundle.ViewImagenesTitle_idImagenes}"/>
+                    <h:outputText value="#{bundle.ViewImagenesLabel_name}"/>
+                    <h:outputText value="#{imagenesController.selected.name}" title="#{bundle.ViewImagenesTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewImagenesLabel_ruta}"/>
+                    <h:outputText value="#{imagenesController.selected.ruta}" title="#{bundle.ViewImagenesTitle_ruta}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{imagenesController.destroyAndView}" value="#{bundle.ViewImagenesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewImagenesEditLink}"/>
+                <br />
+                <h:commandLink action="#{imagenesController.prepareCreate}" value="#{bundle.ViewImagenesCreateLink}" />
+                <br />
+                <h:commandLink action="#{imagenesController.prepareList}" value="#{bundle.ViewImagenesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewImagenesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
