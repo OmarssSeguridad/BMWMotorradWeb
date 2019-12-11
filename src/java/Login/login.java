@@ -71,7 +71,7 @@ public class login implements Serializable {
     public void logout() {
         try {
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/index.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/inicio.xhtml");
         } catch (Exception e) {
         }
     }
@@ -89,16 +89,17 @@ public class login implements Serializable {
             session.getSession().setAttribute("user", user_session);
             switch (user.getNvlUser()) {
                 case 1:
-                    System.out.println("Si entre");
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradJSF/faces/views/template.xhtml");
+                    System.out.println("entre a admin en el 1 Acceso");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/views/pagos/Create.xhtml");
                     
                     break;
                 case 2:
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradJSF/");
+                    System.out.println("entre a user en el 1 Acceso");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/user/pagos/Create.xhtml");
                     break;
                 default:
                     System.out.println("Entre en default");
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("/AsistenteMedico/app/index.xhtml");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/views/login/error.xhtml");
                     break;
             }
 
@@ -114,20 +115,22 @@ public class login implements Serializable {
         if (user != null) {
             switch (user.getNvl()) {
                 case 1:
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/views/template.xhtml");
+                System.out.println("entre a admin en el 2 principal");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/views/pagos/Create.xhtml");
                     break;  
                 case 2:
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("/AsistenteMedico/app/views/home/home_medico.xhtml");
+                System.out.println("entre a user en el 2 principal");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/user/pagos/Create.xhtml");
                     break;
                 default:
-                    System.out.println("");
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradJSF/faces/index.xhtml");
+                    System.out.println("entre a default en el 2 principal");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/views/login/error.xhtml");
                     
                     break;
             }
 
         } else {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/AsistenteMedico/app/views/login/error.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/views/login/error.xhtml");
         }
     }
     public void validateSession(int nivel) throws IOException {
@@ -137,12 +140,12 @@ public class login implements Serializable {
             if (nivel != 100) {
                 if (user.getNvl() == nivel) {
                 } else {
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("/AsistenteMedico/app/views/login/error.xhtml");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/views/login/error.xhtml");
                 }
             }
         } else {
             FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/AsistenteMedico/app/index.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/BMWMotorradWeb/faces/views/login/error.xhtml");
         }
     }
 

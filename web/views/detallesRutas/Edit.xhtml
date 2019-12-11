@@ -14,33 +14,77 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditDetallesRutasLabel_idDetalleruta}" for="idDetalleruta" />
-                    <h:inputText id="idDetalleruta" value="#{detallesRutasController.selected.idDetalleruta}" title="#{bundle.EditDetallesRutasTitle_idDetalleruta}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_idDetalleruta}"/>
-                    <h:outputLabel value="#{bundle.EditDetallesRutasLabel_status}" for="status" />
-                    <h:inputText id="status" value="#{detallesRutasController.selected.status}" title="#{bundle.EditDetallesRutasTitle_status}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_status}"/>
-                    <h:outputLabel value="#{bundle.EditDetallesRutasLabel_idImagenes}" for="idImagenes" />
-                    <h:selectOneMenu id="idImagenes" value="#{detallesRutasController.selected.idImagenes}" title="#{bundle.EditDetallesRutasTitle_idImagenes}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_idImagenes}">
+
+            <br/>
+            <br/>
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Categoria</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesRutasLabel_idDetalleruta}" for="idDetalleruta" />
+                    <h:inputText class="form-control" id="idDetalleruta" value="#{detallesRutasController.selected.idDetalleruta}" title="#{bundle.EditDetallesRutasTitle_idDetalleruta}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_idDetalleruta}"/>
+                    </div>
+                </div>
+
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesRutasLabel_status}" for="status" />
+                    <h:inputText class="form-control" id="status" value="#{detallesRutasController.selected.status}" title="#{bundle.EditDetallesRutasTitle_status}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_status}"/>
+                    </div>
+                </div>
+
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesRutasLabel_idImagenes}" for="idImagenes" />
+                    <h:selectOneMenu class="form-control" id="idImagenes" value="#{detallesRutasController.selected.idImagenes}" title="#{bundle.EditDetallesRutasTitle_idImagenes}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_idImagenes}">
                         <f:selectItems value="#{imagenesController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditDetallesRutasLabel_idMotociclista}" for="idMotociclista" />
-                    <h:selectOneMenu id="idMotociclista" value="#{detallesRutasController.selected.idMotociclista}" title="#{bundle.EditDetallesRutasTitle_idMotociclista}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_idMotociclista}">
+                    </div>
+                </div>
+
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesRutasLabel_idMotociclista}" for="idMotociclista" />
+                    <h:selectOneMenu class="form-control" id="idMotociclista" value="#{detallesRutasController.selected.idMotociclista}" title="#{bundle.EditDetallesRutasTitle_idMotociclista}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_idMotociclista}">
                         <f:selectItems value="#{motociclistasController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditDetallesRutasLabel_idRuta}" for="idRuta" />
-                    <h:selectOneMenu id="idRuta" value="#{detallesRutasController.selected.idRuta}" title="#{bundle.EditDetallesRutasTitle_idRuta}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_idRuta}">
+                    </div>
+                </div>
+
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesRutasLabel_idRuta}" for="idRuta" />
+                    <h:selectOneMenu class="form-control" id="idRuta" value="#{detallesRutasController.selected.idRuta}" title="#{bundle.EditDetallesRutasTitle_idRuta}" required="true" requiredMessage="#{bundle.EditDetallesRutasRequiredMessage_idRuta}">
                         <f:selectItems value="#{rutasController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{detallesRutasController.update}" value="#{bundle.EditDetallesRutasSaveLink}"/>
+                </div>
+            </div>
+            <br/>
+        </div>
+
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{detallesRutasController.update}" value="#{bundle.EditDetallesRutasSaveLink}"/>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditDetallesRutasViewLink}"/>
+                <h:link class="btn btn-success" outcome="View" value="#{bundle.EditDetallesRutasViewLink}"/>
                 <br />
-                <h:commandLink action="#{detallesRutasController.prepareList}" value="#{bundle.EditDetallesRutasShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-secondary" action="#{detallesRutasController.prepareList}" value="#{bundle.EditDetallesRutasShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditDetallesRutasIndexLink}" />
             </h:form>
         </ui:define>
     </ui:composition>

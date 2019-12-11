@@ -5,7 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-   <ui:composition template="/views/template.xhtml">
+    <ui:composition template="/views/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateModoPagosTitle}"></h:outputText>
         </ui:define>
@@ -14,52 +14,51 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-            <div class="content">   
-            <div class="container-fluid">
-            <div class="row">
-            <div class="col-md-12">
-            <div class="card">
-            <div class="card-header">
-                <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Modo de Pago</h4>
-            </div>
-            <div class="card-body">
-            <div class="row">
-                <div class="col-md-4 px-1">    
-                     <div class="form-group"> 
-                    <h:outputLabel class="label" value="#{bundle.CreateModoPagosLabel_idModopago}" for="idModopago" />
-                    <h:inputText class="form-control" id="idModopago" value="#{modoPagosController.selected.idModopago}" title="#{bundle.CreateModoPagosTitle_idModopago}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_idModopago}"/>
-                    </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group">     
-                    <h:outputLabel class="label" value="#{bundle.CreateModoPagosLabel_name}" for="name" />
-                    <h:inputText class="form-control" id="name" value="#{modoPagosController.selected.name}" title="#{bundle.CreateModoPagosTitle_name}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_name}"/>
-                    </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group">     
-                    <h:outputLabel class="label" value="#{bundle.CreateModoPagosLabel_detalle}" for="detalle" />
-                    <h:inputText class="form-control" id="detalle" value="#{modoPagosController.selected.detalle}" title="#{bundle.CreateModoPagosTitle_detalle}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_detalle}"/>
+                <div class="content">   
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Modo de Pago</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4 px-1 d-none">    
+                                                <div class="form-group"> 
+                                                    <h:outputLabel class="label" value="#{bundle.CreateModoPagosLabel_idModopago}" for="idModopago" />
+                                                    <h:inputText class="form-control" id="idModopago" value="#{modoPagosController.selected.idModopago}" title="#{bundle.CreateModoPagosTitle_idModopago}" required="false" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_idModopago}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">     
+                                                    <h:outputLabel class="label" value="#{bundle.CreateModoPagosLabel_name}" for="name" />
+                                                    <h:inputText class="form-control" id="name" value="#{modoPagosController.selected.name}" title="#{bundle.CreateModoPagosTitle_name}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_name}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">     
+                                                    <h:outputLabel class="label" value="#{bundle.CreateModoPagosLabel_detalle}" for="detalle" />
+                                                    <h:inputText class="form-control" id="detalle" value="#{modoPagosController.selected.detalle}" title="#{bundle.CreateModoPagosTitle_detalle}" required="true" requiredMessage="#{bundle.CreateModoPagosRequiredMessage_detalle}"/>
+                                                </div>
+                                            </div>
+
+
+                                            <br />
+                                        </div>
+                                        <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{modoPagosController.create}" value="#{bundle.CreateModoPagosSaveLink}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-
-                <br />
-            </div>
-                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{modoPagosController.create}" value="#{bundle.CreateModoPagosSaveLink}" />
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-    
                 <br />
                 <br />
                 <h:commandLink class="btn btn-secondary" action="#{modoPagosController.prepareList}" value="#{bundle.CreateModoPagosShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.CreateModoPagosIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

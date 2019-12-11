@@ -8,6 +8,7 @@ package Modelos;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import javax.enterprise.context.SessionScoped;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,6 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "motociclistas")
 @XmlRootElement
+@SessionScoped
 @NamedQueries({
     @NamedQuery(name = "Motociclistas.findAll", query = "SELECT m FROM Motociclistas m")
     , @NamedQuery(name = "Motociclistas.findByIdMotociclista", query = "SELECT m FROM Motociclistas m WHERE m.idMotociclista = :idMotociclista")
@@ -213,7 +215,7 @@ public class Motociclistas implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelos.Motociclistas[ idMotociclista=" + idMotociclista + " ]";
+        return (name+" "+ap+" "+ am);
     }
     
 }

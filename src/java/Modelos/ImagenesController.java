@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import Modelos.util.JsfUtil;
 import Modelos.util.PaginationHelper;
-
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -100,12 +99,16 @@ public class ImagenesController implements Serializable {
 
     public String create() throws IOException {
        // try {
-            String ruta = "C:/Users/HP/Documents/NetBeansProjects/zonaaguacatera/web/img/";
+       //C:\Users\Omarb\Documents\NetBeansProjects\BMWMotorradWeb
+            String ruta = "C:/Users/Omarb/Documents/NetBeansProjects/BMWMotorradWeb/web/img/";
             current.setName(file.getFileName());
             //current.setNombreGuardado(file.getFileName());
             //current.setFormato(file.getContentType());
             current.setRuta("/img/" + file.getFileName());
-
+//Ya Listo!
+//AAAAA PRROOOOO
+//TE AMO<3
+//Yo tambien besitos! Listo Bye bebé
             InputStream input = file.getInputstream();
             Path folder = Paths.get(ruta);
             Path fileToCreatePath = folder.resolve(file.getFileName());
@@ -131,7 +134,7 @@ public class ImagenesController implements Serializable {
     public String update() {
         try {
             if (file != null) {
-                String ruta = "C:/Users/HP/Documents/NetBeansProjects/zonaaguacatera/web/img/";
+                String ruta = "C:/Users/Omarb/Documents/NetBeansProjects/BMWMotorradWeb/web/img/";
                 current.setName(file.getFileName());
                 //current.setNombreGuardado(file.getFileName());
                 //current.setFormato(file.getContentType());
@@ -146,7 +149,7 @@ public class ImagenesController implements Serializable {
             }
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ImagenesUpdated"));
-            return "View";
+            return "List";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;

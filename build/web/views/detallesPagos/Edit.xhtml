@@ -14,31 +14,75 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditDetallesPagosLabel_idDetalle}" for="idDetalle" />
-                    <h:inputText id="idDetalle" value="#{detallesPagosController.selected.idDetalle}" title="#{bundle.EditDetallesPagosTitle_idDetalle}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_idDetalle}"/>
-                    <h:outputLabel value="#{bundle.EditDetallesPagosLabel_cantidad}" for="cantidad" />
-                    <h:inputText id="cantidad" value="#{detallesPagosController.selected.cantidad}" title="#{bundle.EditDetallesPagosTitle_cantidad}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_cantidad}"/>
-                    <h:outputLabel value="#{bundle.EditDetallesPagosLabel_precio}" for="precio" />
-                    <h:inputText id="precio" value="#{detallesPagosController.selected.precio}" title="#{bundle.EditDetallesPagosTitle_precio}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_precio}"/>
-                    <h:outputLabel value="#{bundle.EditDetallesPagosLabel_idPago}" for="idPago" />
-                    <h:selectOneMenu id="idPago" value="#{detallesPagosController.selected.idPago}" title="#{bundle.EditDetallesPagosTitle_idPago}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_idPago}">
+  
+            <br/>
+            <br/>
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Editar Detalle Pagos</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesPagosLabel_idDetalle}" for="idDetalle" />
+                    <h:inputText class="form-control"  id="idDetalle" value="#{detallesPagosController.selected.idDetalle}" title="#{bundle.EditDetallesPagosTitle_idDetalle}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_idDetalle}"/>
+                    </div>
+                </div>
+
+                <div class="col-md-4 px-1">    
+                    <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesPagosLabel_cantidad}" for="cantidad" />
+                    <h:inputText class="form-control"  id="cantidad" value="#{detallesPagosController.selected.cantidad}" title="#{bundle.EditDetallesPagosTitle_cantidad}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_cantidad}"/>
+                    </div>
+                </div>
+                    
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesPagosLabel_precio}" for="precio" />
+                    <h:inputText class="form-control"  id="precio" value="#{detallesPagosController.selected.precio}" title="#{bundle.EditDetallesPagosTitle_precio}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_precio}"/>
+                    </div>
+                </div>
+                    
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesPagosLabel_idPago}" for="idPago" />
+                    <h:selectOneMenu class="form-control"  id="idPago" value="#{detallesPagosController.selected.idPago}" title="#{bundle.EditDetallesPagosTitle_idPago}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_idPago}">
                         <f:selectItems value="#{pagosController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditDetallesPagosLabel_idProducto}" for="idProducto" />
-                    <h:selectOneMenu id="idProducto" value="#{detallesPagosController.selected.idProducto}" title="#{bundle.EditDetallesPagosTitle_idProducto}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_idProducto}">
+                    </div>
+                </div>
+                    
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditDetallesPagosLabel_idProducto}" for="idProducto" />
+                    <h:selectOneMenu class="form-control"  id="idProducto" value="#{detallesPagosController.selected.idProducto}" title="#{bundle.EditDetallesPagosTitle_idProducto}" required="true" requiredMessage="#{bundle.EditDetallesPagosRequiredMessage_idProducto}">
                         <f:selectItems value="#{productosController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{detallesPagosController.update}" value="#{bundle.EditDetallesPagosSaveLink}"/>
+                        </div>
+                </div>
+                <br/>
+                </div>                
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{detallesPagosController.update}" value="#{bundle.EditDetallesPagosSaveLink}"/>
+                 </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditDetallesPagosViewLink}"/>
+                <h:link class="btn btn-success" outcome="View" value="#{bundle.EditDetallesPagosViewLink}"/>
                 <br />
-                <h:commandLink action="#{detallesPagosController.prepareList}" value="#{bundle.EditDetallesPagosShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-secondary" action="#{detallesPagosController.prepareList}" value="#{bundle.EditDetallesPagosShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditDetallesPagosIndexLink}" />
+                <h:link  class="btn btn-warning" outcome="/index" value="#{bundle.EditDetallesPagosIndexLink}" />
             </h:form>
         </ui:define>
     </ui:composition>

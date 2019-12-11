@@ -23,7 +23,6 @@
                     <h:outputText value="#{imagenesController.selected.ruta}" title="#{bundle.ViewImagenesTitle_ruta}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{imagenesController.destroyAndView}" value="#{bundle.ViewImagenesDestroyLink}"/>
                 <br />
                 <br />
                 <h:link outcome="Edit" value="#{bundle.ViewImagenesEditLink}"/>
@@ -33,7 +32,6 @@
                 <h:commandLink action="#{imagenesController.prepareList}" value="#{bundle.ViewImagenesShowAllLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewImagenesIndexLink}"/>
 
             </h:form>
         </ui:define>

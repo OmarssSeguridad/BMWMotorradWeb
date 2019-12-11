@@ -2,37 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="shortcut icon" type="image/x-icon" href="../../resources/img/bmwlogo.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="./../resources/img/bmwlogo.png" />
         <meta charset="utf-8"/>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
         <!--icons -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-        <link rel="stylesheet" type="text/css" href="./resources/css/estilosOmi.css"/>
+        <link rel="stylesheet" type="text/css" href="./../resources/css/estilosOmi.css"/>
         <!--<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap.min.css"/>-->
-        <link rel="stylesheet" type="text/css" href="./resources/css/smoke.css"/>
-        <link rel="stylesheet" type="text/css" href="./resources/css/Slider.css"/>
-        <script type="text/javascript" src="./resources/js/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="./../resources/css/smoke.css"/>
+        <link rel="stylesheet" type="text/css" href="./../resources/css/Slider.css"/>
+        <script type="text/javascript" src="./../resources/js/jquery.js"></script>
         <!--  <script type="text/javascript" src="js/bootstrap.min.js"></script>-->
-        <script type="text/javascript" src="./resources/js/smoke.js"></script>
-        <script type="text/javascript" src="./resources/lang/es.js"></script>
+        <script type="text/javascript" src="./../resources/js/smoke.js"></script>
+        <script type="text/javascript" src="./../resources/lang/es.js"></script>
         
         <title><ui:insert name="title">Default Title</ui:insert></title>
+        
     </h:head>
 
     <h:body>
 
         <div id="top">
+            <f:event type="preRenderView" listener="#{login.validateSession(1)}"/>
             <ui:insert name="top">
-
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
                     <a class="navbar-brand" href="#">
-                        <img src="./resources/img/logos/logoBMWMotorrad.jpg" alt="logo" style="width:100px;"/> 
+                        <img src="./../resources/img/logos/logoBMWMotorrad.jpg" alt="logo" style="width:100px;"/> 
                     </a>  
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -66,9 +68,7 @@
                                 </a>
                                  <div class="dropdown-menu">
                                     <h:link class="dropdown-item" outcome="/views/categorias/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/categorias/List" value="Bajas"/>
                                     <h:link class="dropdown-item" outcome="/views/categorias/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/categorias/List" value="Modificaciones"/>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -77,9 +77,7 @@
                                 </a>
                                  <div class="dropdown-menu">
                                     <h:link class="dropdown-item" outcome="/views/pagos/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/pagos/List" value="Bajas"/>
                                     <h:link class="dropdown-item" outcome="/views/pagos/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/pagos/List" value="Modificaciones"/>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -88,9 +86,7 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <h:link class="dropdown-item" outcome="/views/modoPagos/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/detallesPagos/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/detallesRutas/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/imagenes/List" value="Modificaciones"/>
+                                    <h:link class="dropdown-item" outcome="/views/modoPagos/List" value="Consultas"/>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -99,9 +95,7 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <h:link class="dropdown-item" outcome="/views/motociclistas/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Bajas"/>
                                     <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/motociclistas/List" value="Modificaciones"/>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -110,20 +104,17 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <h:link class="dropdown-item" outcome="/views/productos/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/motociclistas/List" value="Modificaciones"/>
+                                    <h:link class="dropdown-item" outcome="/views/productos/List" value="Consultas"/>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+
+                           <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Rutas
+                                    Imagenes
                                 </a>
                                 <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/rutas/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/rutas/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/rutas/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/rutas/List" value="Modificaciones"/>
+                                    <h:link class="dropdown-item" outcome="/views/imagenes/Create" value="Altas"/>
+                                    <h:link class="dropdown-item" outcome="/views/imagenes/List" value="Consultas"/>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -132,9 +123,7 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <h:link class="dropdown-item" outcome="/views/users/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/users/List" value="Bajas"/>
                                     <h:link class="dropdown-item" outcome="/views/users/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/users/List" value="Modificaciones"/>
                                 </div>
                             </li>
                             <li class="nav-item" style=" align-content: right">
@@ -171,7 +160,7 @@
                             <div class="col-md-4 col-xl-5">
                                 <div class="pr-xl-4">
                                     <br/>
-                                    <p style="color: white;"><img src="./resources/img/logoBMWMotorrad.jpg" alt="logo" style="width:250px;"/></p>
+                                    <p style="color: white;"><img src="./../resources/img/logoBMWMotorrad.jpg" alt="logo" style="width:250px;"/></p>
                                     <!-- Rights-->
                                     <p class="rights" style="color: white;"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>BMW</span><span>. </span><span>All Rights Reserved.</span></p>
                                 </div>
@@ -215,9 +204,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./resources/js/valbut.js"></script>
-    <script type="text/javascript" src="./resources/js/slider.js"></script>
+    <script type="text/javascript" src="./../resources/js/valbut.js"></script>
+    <script type="text/javascript" src="./../resources/js/slider.js"></script>
     <!--Carrito -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="./resources/js/main.js"></script>
+    <script type="text/javascript" src="./../resources/js/main.js"></script>
 </html>

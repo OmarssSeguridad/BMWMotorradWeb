@@ -35,7 +35,6 @@
                     <h:outputText value="#{motociclistasController.selected.email}" title="#{bundle.ViewMotociclistasTitle_email}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{motociclistasController.destroyAndView}" value="#{bundle.ViewMotociclistasDestroyLink}"/>
                 <br />
                 <br />
                 <h:link outcome="Edit" value="#{bundle.ViewMotociclistasEditLink}"/>
@@ -45,7 +44,6 @@
                 <h:commandLink action="#{motociclistasController.prepareList}" value="#{bundle.ViewMotociclistasShowAllLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewMotociclistasIndexLink}"/>
 
             </h:form>
         </ui:define>

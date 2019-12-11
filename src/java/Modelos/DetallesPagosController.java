@@ -4,6 +4,8 @@ import Modelos.util.JsfUtil;
 import Modelos.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -22,6 +24,7 @@ public class DetallesPagosController implements Serializable {
 
     private DetallesPagos current;
     private DataModel items = null;
+    private List<Productos> productos;
     @EJB
     private Modelos.DetallesPagosFacade ejbFacade;
     private PaginationHelper pagination;
@@ -38,8 +41,27 @@ public class DetallesPagosController implements Serializable {
         return current;
     }
 
+    public List<Productos> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Productos> productos) {
+        this.productos = productos;
+    }
+    public void addProdCart (Productos productos)
+    {
+        if (this.productos==null) {
+            this.productos= new ArrayList<>();
+        }
+
+        this.productos.add(productos);
+    }
     private DetallesPagosFacade getFacade() {
         return ejbFacade;
+    }
+    public void delProdCart(Productos productos)
+    {
+
     }
 
     public PaginationHelper getPagination() {
@@ -81,6 +103,7 @@ public class DetallesPagosController implements Serializable {
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DetallesPagosCreated"));
+            
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -98,7 +121,7 @@ public class DetallesPagosController implements Serializable {
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DetallesPagosUpdated"));
-            return "View";
+            return "List";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;

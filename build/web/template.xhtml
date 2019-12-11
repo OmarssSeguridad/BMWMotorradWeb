@@ -21,7 +21,7 @@
         <script type="text/javascript" src="./../views/resources/js/smoke.js"></script>
         <script type="text/javascript" src="./../views/resources/lang/es.js"></script>
         
-        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <title><ui:insert name="title">BMW Motorrad Club Metepec</ui:insert></title>
     </h:head>
 
     <h:body>
@@ -41,105 +41,13 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <h5 class="h5" style="color: white;">BMW Club Motorrad Metepec</h5>
                         <ul class="navbar-nav">
-                           <!--
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Categorias
-                                </a>
-                                <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/categorias/List" value="Categorias"/>
-                                    <h:link class="dropdown-item" outcome="/views/detallesPagos/List" value="Detalle Pagos"/>
-                                    <h:link class="dropdown-item" outcome="/views/detallesRutas/List" value="Detalle Rutas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/imagenes/List" value="Imagenes"/>
-                                    <h:link class="dropdown-item" outcome="/views/modoPagos/List" value="Modo Pagos"/>
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Motociclistas"/>
-                                    <h:link class="dropdown-item" outcome="/views/pagos/List" value="Pagos"/>
-                                    <h:link class="dropdown-item" outcome="/views/productos/List" value="Productos"/>
-                                    <h:link class="dropdown-item" outcome="/views/rutas/List" value="Rutas"/>
-                                    <h:link class="dropdown-item" outcome="/views/users/List" value="Users"/>
-                                </div>
-                            </li>
-                           -->
-                           <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Categorias
-                                </a>
-                                 <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/categorias/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/categorias/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/categorias/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/categorias/List" value="Modificaciones"/>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Pagos
-                                </a>
-                                 <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/pagos/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/pagos/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/pagos/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/pagos/List" value="Modificaciones"/>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Modo de Pago
-                                </a>
-                                <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/modoPagos/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/detallesPagos/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/detallesRutas/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/imagenes/List" value="Modificaciones"/>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Motociclista
-                                </a>
-                                <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/motociclistas/List" value="Modificaciones"/>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Productos
-                                </a>
-                                <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/productos/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/motociclistas/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/motociclistas/List" value="Modificaciones"/>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Rutas
-                                </a>
-                                <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/rutas/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/rutas/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/rutas/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/rutas/List" value="Modificaciones"/>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Usuarios
-                                </a>
-                                <div class="dropdown-menu">
-                                    <h:link class="dropdown-item" outcome="/views/users/Create" value="Altas"/>
-                                    <h:link class="dropdown-item" outcome="/views/users/List" value="Bajas"/>
-                                    <h:link class="dropdown-item" outcome="/views/users/List" value="Consultas"/>
-                                    <h:link class="dropdown-item"  outcome="/views/users/List" value="Modificaciones"/>
-                                </div>
-                            </li>
                             <li class="nav-item" style=" align-content: right">
-
-                            </li>
+                                <h:form>
+                                    <a class="nav-link" href="views/login/login.xhtml" >
+                                    Iniciar Sesion
+                                    </a>
+                                </h:form>
+                            </li>                          
                         </ul>
                     </div>
                 </nav>

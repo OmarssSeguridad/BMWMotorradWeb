@@ -4,6 +4,9 @@ import Modelos.util.JsfUtil;
 import Modelos.util.PaginationHelper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -22,12 +25,35 @@ public class PagosController implements Serializable {
 
     private Pagos current;
     private DataModel items = null;
+    private List<Productos> productos;
+    private List<Pagos> pagos;
+    private Pagos editarPago;
+    
     @EJB
     private Modelos.PagosFacade ejbFacade;
+    @EJB
+    private Modelos.DetallesPagosFacade ejbFacadeDetalle;
+
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
     public PagosController() {
+    }
+
+    public void addProdCart(Productos productos) {
+        if (this.productos == null) {
+            this.productos = new ArrayList<>();
+        }
+
+        this.productos.add(productos);
+    }
+
+    public Pagos getEditarPago() {
+        return editarPago;
+    }
+
+    public void setEditarPago(Pagos editarPago) {
+        this.editarPago = editarPago;
     }
 
     public Pagos getSelected() {
@@ -60,6 +86,68 @@ public class PagosController implements Serializable {
         return pagination;
     }
 
+    public String crearVenta() {
+
+        //current.setFecha(new Date());
+        ejbFacade.create(current);
+        DetallesPagos detalle = new DetallesPagos();
+        for (Productos producto : productos) {
+            detalle.setCantidad(1);
+            detalle.setIdPago(current);
+            detalle.setIdProducto(producto);
+            detalle.setPrecio(producto.getPrecio());
+            ejbFacadeDetalle.create(detalle);
+        }
+        //productos.clear();
+            productos = null;
+        //this.productos= new ArrayList<>();
+        
+        return "List";
+    }
+    public String eliminar(Pagos pagos)
+    {
+        getFacade().remove(pagos);
+        return "List";
+    }
+    public String editar(Pagos pagos)
+    {
+        editarPago= pagos;
+        
+        return "Edit";
+    }
+    public String guardar()
+    {
+        getFacade().edit(editarPago);
+        return "List";
+    }
+
+    public List<Pagos> getPagos() {
+       pagos= getFacade().findAll();
+        return pagos;
+    }
+
+    public void setPagos(List<Pagos> pagos) {
+        this.pagos = pagos;
+    }
+
+    public DetallesPagosFacade getEjbFacadeDetalle() {
+        return ejbFacadeDetalle;
+    }
+
+    public void setEjbFacadeDetalle(DetallesPagosFacade ejbFacadeDetalle) {
+        this.ejbFacadeDetalle = ejbFacadeDetalle;
+    }
+
+    public List<Productos> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Productos> productos) {
+        this.productos = productos;
+    }
+
+
+
     public String prepareList() {
         recreateModel();
         return "List";
@@ -80,6 +168,13 @@ public class PagosController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
+            Productos prod = new Productos();
+            for (Productos item : this.productos) {
+                if (item.getIdProducto() == prod.getIdProducto()) {
+                    productos.add(item);
+                }
+            }
+
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("PagosCreated"));
             return prepareCreate();
         } catch (Exception e) {
@@ -98,7 +193,7 @@ public class PagosController implements Serializable {
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("PagosUpdated"));
-            return "View";
+            return "List";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;

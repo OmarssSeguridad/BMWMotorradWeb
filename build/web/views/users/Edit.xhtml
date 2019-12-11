@@ -14,31 +14,73 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditUsersLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{usersController.selected.id}" title="#{bundle.EditUsersTitle_id}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.EditUsersLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{usersController.selected.name}" title="#{bundle.EditUsersTitle_name}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_name}"/>
-                    <h:outputLabel value="#{bundle.EditUsersLabel_email}" for="email" />
-                    <h:inputText id="email" value="#{usersController.selected.email}" title="#{bundle.EditUsersTitle_email}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_email}"/>
-                    <h:outputLabel value="#{bundle.EditUsersLabel_emailVerifiedAt}" for="emailVerifiedAt" />
-                    <h:inputText id="emailVerifiedAt" value="#{usersController.selected.emailVerifiedAt}" title="#{bundle.EditUsersTitle_emailVerifiedAt}" >
+                <div class="content">   
+                <div class="container-fluid">
+                <div class="row">
+                <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title" style="font-family: 'Montserrat';">Editar Usuarios</h4>
+                </div>
+                <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 px-1">    
+                         <div class="form-group">
+
+
+                    <h:outputLabel class="label"   value="#{bundle.EditUsersLabel_id}" for="id" />
+                    <h:inputText class="form-control" id="id" value="#{usersController.selected.id}" title="#{bundle.EditUsersTitle_id}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_id}"/>
+                    </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                         <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditUsersLabel_name}" for="name" />
+                    <h:inputText class="form-control" id="name" value="#{usersController.selected.name}" title="#{bundle.EditUsersTitle_name}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_name}"/>
+                        </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                         <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditUsersLabel_email}" for="email" />
+                    <h:inputText class="form-control" id="email" value="#{usersController.selected.email}" title="#{bundle.EditUsersTitle_email}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_email}"/>
+                        </div>
+                </div>
+                    <div class="col-md-4 px-1 d-none">    
+                         <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditUsersLabel_emailVerifiedAt}" for="emailVerifiedAt" />
+                    <h:inputText class="form-control" id="emailVerifiedAt" value="#{usersController.selected.emailVerifiedAt}" title="#{bundle.EditUsersTitle_emailVerifiedAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.EditUsersLabel_password}" for="password" />
-                    <h:inputText id="password" value="#{usersController.selected.password}" title="#{bundle.EditUsersTitle_password}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_password}"/>
-                    <h:outputLabel value="#{bundle.EditUsersLabel_nvlUser}" for="nvlUser" />
-                    <h:inputText id="nvlUser" value="#{usersController.selected.nvlUser}" title="#{bundle.EditUsersTitle_nvlUser}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_nvlUser}"/>
-                </h:panelGrid>
-                <h:commandLink action="#{usersController.update}" value="#{bundle.EditUsersSaveLink}"/>
+                        </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                         <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditUsersLabel_password}" for="password" />
+                    <h:inputText class="form-control" id="password" value="#{usersController.selected.password}" title="#{bundle.EditUsersTitle_password}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_password}"/>
+
+                    </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                         <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditUsersLabel_nvlUser}" for="nvlUser" />
+                    <h:inputText class="form-control" id="nvlUser" value="#{usersController.selected.nvlUser}" title="#{bundle.EditUsersTitle_nvlUser}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_nvlUser}"/>
+                    </div>
+                </div>
+
+                <br/>
+        </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{usersController.update}" value="#{bundle.EditUsersSaveLink}"/>
+                                 </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditUsersViewLink}"/>
                 <br />
-                <h:commandLink action="#{usersController.prepareList}" value="#{bundle.EditUsersShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-secondary" action="#{usersController.prepareList}" value="#{bundle.EditUsersShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditUsersIndexLink}" />
             </h:form>
         </ui:define>
     </ui:composition>
