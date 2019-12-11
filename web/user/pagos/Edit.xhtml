@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/user/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPagosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="content">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form id="form_det">
+
+                <br/>
+                <br/>
+                <div class="content">   
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title" style="font-family: 'Montserrat';">Editar Pagos</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">
+                                                    <h:outputLabel  value="#{bundle.EditPagosLabel_idPago}" for="idPago" />
+                                                    <h:inputText class="form-control"  id="idPago" value="#{pagosController.editarPago.idPago}" title="#{bundle.EditPagosTitle_idPago}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idPago}"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">
+                                                    <h:outputLabel  value="#{bundle.EditPagosLabel_fecha}" for="fecha" />
+                                                    <h:inputText class="form-control"  id="fecha" value="#{pagosController.editarPago.fecha}" title="#{bundle.EditPagosTitle_fecha}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_fecha}">
+                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                    </h:inputText>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">
+                                                    <h:outputLabel  value="#{bundle.EditPagosLabel_idModopago}" for="idModopago" />
+                                                    <h:selectOneMenu class="form-control"  id="idModopago" value="#{pagosController.editarPago.idModopago}" title="#{bundle.EditPagosTitle_idModopago}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idModopago}">
+                                                        <f:selectItems value="#{modoPagosController.itemsAvailableSelectOne}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">
+                                                    <h:outputLabel  value="#{bundle.EditPagosLabel_idMotociclista}" for="idMotociclista" />
+                                                    <h:selectOneMenu class="form-control"  id="idMotociclista" value="#{pagosController.editarPago.idMotociclista}" title="#{bundle.EditPagosTitle_idMotociclista}" required="true" requiredMessage="#{bundle.EditPagosRequiredMessage_idMotociclista}">
+                                                        <f:selectItems value="#{motociclistasController.itemsAvailableSelectOne}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <p:dataScroller var="detalle" id="detallesss" value="#{pagosController.editarPago.detallesPagosCollection}" chunkSize="10">
+                                                    <f:facet name="header">
+                                                        Compras
+                                                    </f:facet>
+                                                    <h:panelGrid id="detalless" columns="2" style="width:100%" columnClasses="detail">
+                                                        <p:outputPanel>
+                                                            <div class="form-group row">
+                                                                <h:outputText class="col-sm-6 col-form-label" value="Id:" />
+                                                                <h:outputText value="#{detalle.idDetalle}" style="font-weight: bold"/>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <h:outputText class="col-sm-6 col-form-label" value="Producto:" />
+                                                                <h:outputText value="#{detalle.idProducto.name}" style="font-weight: bold"/>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <h:outputText class="col-sm-6 col-form-label" value="Cantidad:" />
+                                                                <h:outputText value="#{detalle.cantidad}" style="font-weight: bold"/>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <h:outputText class="col-sm-6 col-form-label" value="Precio:" />
+                                                                <h:outputText value="#{detalle.precio}" style="font-weight: bold"/>
+                                                            </div>
+                                                           
+                                                            <hr/>
+
+                                                        </p:outputPanel>
+                                                    </h:panelGrid>
+                                                </p:dataScroller>
+                                            </div>
+                                            <br/>
+                                        </div>
+                                        <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{pagosController.guardar()}" value="#{bundle.EditPagosSaveLink}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <h:commandLink class="btn btn-secondary" action="#{pagosController.prepareList}" value="#{bundle.EditPagosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

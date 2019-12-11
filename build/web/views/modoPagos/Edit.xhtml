@@ -14,23 +14,55 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditModoPagosLabel_idModopago}" for="idModopago" />
-                    <h:inputText id="idModopago" value="#{modoPagosController.selected.idModopago}" title="#{bundle.EditModoPagosTitle_idModopago}" required="true" requiredMessage="#{bundle.EditModoPagosRequiredMessage_idModopago}"/>
-                    <h:outputLabel value="#{bundle.EditModoPagosLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{modoPagosController.selected.name}" title="#{bundle.EditModoPagosTitle_name}" required="true" requiredMessage="#{bundle.EditModoPagosRequiredMessage_name}"/>
-                    <h:outputLabel value="#{bundle.EditModoPagosLabel_detalle}" for="detalle" />
-                    <h:inputText id="detalle" value="#{modoPagosController.selected.detalle}" title="#{bundle.EditModoPagosTitle_detalle}" required="true" requiredMessage="#{bundle.EditModoPagosRequiredMessage_detalle}"/>
-                </h:panelGrid>
-                <h:commandLink action="#{modoPagosController.update}" value="#{bundle.EditModoPagosSaveLink}"/>
+
+            <br/>
+            <br/>
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Editar Modo de Pago</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+
+                    <h:outputLabel class="label"   value="#{bundle.EditModoPagosLabel_idModopago}" for="idModopago" />
+                    <h:inputText class="form-control" id="idModopago" value="#{modoPagosController.selected.idModopago}" title="#{bundle.EditModoPagosTitle_idModopago}" required="true" requiredMessage="#{bundle.EditModoPagosRequiredMessage_idModopago}"/>
+                    </div>
+                </div>
+
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditModoPagosLabel_name}" for="name" />
+                    <h:inputText class="form-control" id="name" value="#{modoPagosController.selected.name}" title="#{bundle.EditModoPagosTitle_name}" required="true" requiredMessage="#{bundle.EditModoPagosRequiredMessage_name}"/>
+                    </div>
+                </div>
+
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditModoPagosLabel_detalle}" for="detalle" />
+                    <h:inputText class="form-control" id="detalle" value="#{modoPagosController.selected.detalle}" title="#{bundle.EditModoPagosTitle_detalle}" required="true" requiredMessage="#{bundle.EditModoPagosRequiredMessage_detalle}"/>
+                    </div>
+                </div>
+                <br/>
+        </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{modoPagosController.update}" value="#{bundle.EditModoPagosSaveLink}"/>
+                                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditModoPagosViewLink}"/>
                 <br />
-                <h:commandLink action="#{modoPagosController.prepareList}" value="#{bundle.EditModoPagosShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-secondary" action="#{modoPagosController.prepareList}" value="#{bundle.EditModoPagosShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditModoPagosIndexLink}" />
             </h:form>
         </ui:define>
     </ui:composition>

@@ -5,7 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-   <ui:composition template="/views/template.xhtml">
+    <ui:composition template="/views/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateDetallesPagosTitle}"></h:outputText>
         </ui:define>
@@ -37,7 +37,6 @@
                 <h:commandLink action="#{detallesPagosController.prepareList}" value="#{bundle.CreateDetallesPagosShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateDetallesPagosIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

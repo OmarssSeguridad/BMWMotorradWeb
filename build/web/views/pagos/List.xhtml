@@ -14,12 +14,8 @@
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListPagosEmpty}" rendered="#{pagosController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{pagosController.items.rowCount > 0}">
-                    <h:outputText value="#{pagosController.pagination.pageFirstItem + 1}..#{pagosController.pagination.pageLastItem + 1}/#{pagosController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{pagosController.previous}" value="#{bundle.Previous} #{pagosController.pagination.pageSize}" rendered="#{pagosController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{pagosController.next}" value="#{bundle.Next} #{pagosController.pagination.pageSize}" rendered="#{pagosController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{pagosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+
+                  <h:dataTable value="#{pagosController.pagos}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPagosTitle_idPago}"/>
@@ -38,31 +34,28 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPagosTitle_idModopago}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idModopago}"/>
+                            <h:outputText value="#{item.idModopago.name}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPagosTitle_idMotociclista}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idMotociclista}"/>
+                            <h:outputText value="#{item.idMotociclista.name}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink class="btn btn-danger btn-fill pull-right" action="#{pagosController.prepareView}" value="#{bundle.ListPagosViewLink}"/>
+                           
+                            <h:commandLink class="btn btn-warning btn-fill pull-right" action="#{pagosController.editar(item)}" value="#{bundle.ListPagosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink class="btn btn-warning btn-fill pull-right" action="#{pagosController.prepareEdit}" value="#{bundle.ListPagosEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink class="btn btn-info btn-fill pull-right" action="#{pagosController.destroy}" value="#{bundle.ListPagosDestroyLink}"/>
+                            <h:commandLink class="btn btn-info btn-fill pull-right" action="#{pagosController.eliminar(item)}" value="#{bundle.ListPagosDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
-                </h:panelGroup>
                 <br />
                 <h:commandLink class="btn btn-secondary" action="#{pagosController.prepareCreate}" value="#{bundle.ListPagosCreateLink}"/>
                 <br />
                 <br />
-                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.ListPagosIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

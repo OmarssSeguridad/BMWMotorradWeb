@@ -14,29 +14,66 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditProductosLabel_idProducto}" for="idProducto" />
-                    <h:inputText id="idProducto" value="#{productosController.selected.idProducto}" title="#{bundle.EditProductosTitle_idProducto}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_idProducto}"/>
-                    <h:outputLabel value="#{bundle.EditProductosLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{productosController.selected.name}" title="#{bundle.EditProductosTitle_name}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_name}"/>
-                    <h:outputLabel value="#{bundle.EditProductosLabel_precio}" for="precio" />
-                    <h:inputText id="precio" value="#{productosController.selected.precio}" title="#{bundle.EditProductosTitle_precio}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_precio}"/>
-                    <h:outputLabel value="#{bundle.EditProductosLabel_stock}" for="stock" />
-                    <h:inputText id="stock" value="#{productosController.selected.stock}" title="#{bundle.EditProductosTitle_stock}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_stock}"/>
-                    <h:outputLabel value="#{bundle.EditProductosLabel_idCategoria}" for="idCategoria" />
-                    <h:selectOneMenu id="idCategoria" value="#{productosController.selected.idCategoria}" title="#{bundle.EditProductosTitle_idCategoria}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_idCategoria}">
+
+            <br/>
+            <br/>
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Categoria</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditProductosLabel_idProducto}" for="idProducto" />
+                    <h:inputText class="form-control" id="idProducto" value="#{productosController.selected.idProducto}" title="#{bundle.EditProductosTitle_idProducto}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_idProducto}"/>
+                    </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditProductosLabel_name}" for="name" />
+                    <h:inputText class="form-control" id="name" value="#{productosController.selected.name}" title="#{bundle.EditProductosTitle_name}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_name}"/>
+                    </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditProductosLabel_precio}" for="precio" />
+                    <h:inputText class="form-control" id="precio" value="#{productosController.selected.precio}" title="#{bundle.EditProductosTitle_precio}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_precio}"/>
+                    </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditProductosLabel_stock}" for="stock" />
+                    <h:inputText class="form-control" id="stock" value="#{productosController.selected.stock}" title="#{bundle.EditProductosTitle_stock}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_stock}"/>
+                    </div>
+                </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
+                    <h:outputLabel class="label"   value="#{bundle.EditProductosLabel_idCategoria}" for="idCategoria" />
+                    <h:selectOneMenu class="form-control" id="idCategoria" value="#{productosController.selected.idCategoria}" title="#{bundle.EditProductosTitle_idCategoria}" required="true" requiredMessage="#{bundle.EditProductosRequiredMessage_idCategoria}">
                         <f:selectItems value="#{categoriasController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{productosController.update}" value="#{bundle.EditProductosSaveLink}"/>
+                    </div>
+                </div>
+                <br/>
+        </div>
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{productosController.update}" value="#{bundle.EditProductosSaveLink}"/>
+                                 </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditProductosViewLink}"/>
                 <br />
-                <h:commandLink action="#{productosController.prepareList}" value="#{bundle.EditProductosShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-secondary" action="#{productosController.prepareList}" value="#{bundle.EditProductosShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditProductosIndexLink}" />
             </h:form>
         </ui:define>
     </ui:composition>

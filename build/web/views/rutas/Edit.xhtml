@@ -14,31 +14,72 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+
+            <br/>
+            <br/>
+            <div class="content">   
+            <div class="container-fluid">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" style="font-family: 'Montserrat';">Editar Rutas</h4>
+            </div>
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-1">    
+                     <div class="form-group">
                     <h:outputLabel value="#{bundle.EditRutasLabel_idRuta}" for="idRuta" />
                     <h:inputText id="idRuta" value="#{rutasController.selected.idRuta}" title="#{bundle.EditRutasTitle_idRuta}" required="true" requiredMessage="#{bundle.EditRutasRequiredMessage_idRuta}"/>
+                    </div>
+                    </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
                     <h:outputLabel value="#{bundle.EditRutasLabel_name}" for="name" />
                     <h:inputText id="name" value="#{rutasController.selected.name}" title="#{bundle.EditRutasTitle_name}" required="true" requiredMessage="#{bundle.EditRutasRequiredMessage_name}"/>
+                    </div>
+                    </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
                     <h:outputLabel value="#{bundle.EditRutasLabel_detalle}" for="detalle" />
                     <h:inputText id="detalle" value="#{rutasController.selected.detalle}" title="#{bundle.EditRutasTitle_detalle}" required="true" requiredMessage="#{bundle.EditRutasRequiredMessage_detalle}"/>
+                    </div>
+                    </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
                     <h:outputLabel value="#{bundle.EditRutasLabel_createdAt}" for="createdAt" />
                     <h:inputText id="createdAt" value="#{rutasController.selected.createdAt}" title="#{bundle.EditRutasTitle_createdAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
+                     </div>
+                    </div>
+                    <div class="col-md-4 px-1">    
+                     <div class="form-group">
                     <h:outputLabel value="#{bundle.EditRutasLabel_updatedAt}" for="updatedAt" />
                     <h:inputText id="updatedAt" value="#{rutasController.selected.updatedAt}" title="#{bundle.EditRutasTitle_updatedAt}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:inputText>
-                </h:panelGrid>
-                <h:commandLink action="#{rutasController.update}" value="#{bundle.EditRutasSaveLink}"/>
+                    
+                </div>
+            </div>
+            <br/>
+        </div> 
+                    
+                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{rutasController.update}" value="#{bundle.EditRutasSaveLink}"/>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+            </div>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditRutasViewLink}"/>
+                <h:link class="btn btn-success" outcome="View" value="#{bundle.EditRutasViewLink}"/>
                 <br />
-                <h:commandLink action="#{rutasController.prepareList}" value="#{bundle.EditRutasShowAllLink}" immediate="true"/>
+                <h:commandLink class="btn btn-secondary" action="#{rutasController.prepareList}" value="#{bundle.EditRutasShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditRutasIndexLink}" />
+                <h:link  class="btn btn-warning" outcome="/index" value="#{bundle.EditRutasIndexLink}" />
             </h:form>
         </ui:define>
     </ui:composition>

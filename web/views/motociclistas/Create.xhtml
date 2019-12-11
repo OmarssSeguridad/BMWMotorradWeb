@@ -5,7 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-   <ui:composition template="/views/template.xhtml">
+    <ui:composition template="/views/template.xhtml">
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateMotociclistasTitle}"></h:outputText>
         </ui:define>
@@ -14,81 +14,80 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-            <div class="content">   
-            <div class="container-fluid">
-            <div class="row">
-            <div class="col-md-12">
-            <div class="card">
-            <div class="card-header">
-                <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Modo de Pago</h4>
-            </div>
-            <div class="card-body">
-            <div class="row">
-                <div class="col-md-4 px-1">    
-                     <div class="form-group"> 
-                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_idMotociclista}" for="idMotociclista" />
-                    <h:inputText class="form-control" id="idMotociclista" value="#{motociclistasController.selected.idMotociclista}" title="#{bundle.CreateMotociclistasTitle_idMotociclista}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_idMotociclista}"/>
+                <div class="content">   
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title" style="font-family: 'Montserrat';">Registrar Modo de Pago</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4 px-1 d-none">    
+                                                <div class="form-group"> 
+                                                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_idMotociclista}" for="idMotociclista" />
+                                                    <h:inputText class="form-control" id="idMotociclista" value="#{motociclistasController.selected.idMotociclista}" title="#{bundle.CreateMotociclistasTitle_idMotociclista}" required="false" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_idMotociclista}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group"> 
+                                                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_name}" for="name" />
+                                                    <h:inputText class="form-control" id="name" value="#{motociclistasController.selected.name}" title="#{bundle.CreateMotociclistasTitle_name}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_name}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">     
+                                                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_ap}" for="ap" />
+                                                    <h:inputText class="form-control" id="ap" value="#{motociclistasController.selected.ap}" title="#{bundle.CreateMotociclistasTitle_ap}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_ap}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">     
+                                                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_am}" for="am" />
+                                                    <h:inputText class="form-control" id="am" value="#{motociclistasController.selected.am}" title="#{bundle.CreateMotociclistasTitle_am}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_am}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">     
+                                                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_direccion}" for="direccion" />
+                                                    <h:inputText class="form-control" id="direccion" value="#{motociclistasController.selected.direccion}" title="#{bundle.CreateMotociclistasTitle_direccion}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_direccion}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">     
+                                                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_fecNac}" for="fecNac" />
+                                                    <h:inputText class="form-control" id="fecNac" value="#{motociclistasController.selected.fecNac}" title="#{bundle.CreateMotociclistasTitle_fecNac}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_fecNac}">
+                                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                    </h:inputText>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">     
+                                                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_telefono}" for="telefono" />
+                                                    <h:inputText class="form-control" id="telefono" value="#{motociclistasController.selected.telefono}" title="#{bundle.CreateMotociclistasTitle_telefono}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_telefono}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">    
+                                                <div class="form-group">     
+                                                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_email}" for="email" />
+                                                    <h:inputText class="form-control" id="email" value="#{motociclistasController.selected.email}" title="#{bundle.CreateMotociclistasTitle_email}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_email}"/>
+                                                </div>
+                                            </div>
+                                            <br />
+                                        </div>
+                                        <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{motociclistasController.create}" value="#{bundle.CreateMotociclistasSaveLink}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group"> 
-                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_name}" for="name" />
-                    <h:inputText class="form-control" id="name" value="#{motociclistasController.selected.name}" title="#{bundle.CreateMotociclistasTitle_name}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_name}"/>
-                    </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group">     
-                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_ap}" for="ap" />
-                    <h:inputText class="form-control" id="ap" value="#{motociclistasController.selected.ap}" title="#{bundle.CreateMotociclistasTitle_ap}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_ap}"/>
-                    </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group">     
-                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_am}" for="am" />
-                    <h:inputText class="form-control" id="am" value="#{motociclistasController.selected.am}" title="#{bundle.CreateMotociclistasTitle_am}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_am}"/>
-                    </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group">     
-                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_direccion}" for="direccion" />
-                    <h:inputText class="form-control" id="direccion" value="#{motociclistasController.selected.direccion}" title="#{bundle.CreateMotociclistasTitle_direccion}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_direccion}"/>
-                    </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group">     
-                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_fecNac}" for="fecNac" />
-                    <h:inputText class="form-control" id="fecNac" value="#{motociclistasController.selected.fecNac}" title="#{bundle.CreateMotociclistasTitle_fecNac}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_fecNac}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:inputText>
-                    </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group">     
-                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_telefono}" for="telefono" />
-                    <h:inputText class="form-control" id="telefono" value="#{motociclistasController.selected.telefono}" title="#{bundle.CreateMotociclistasTitle_telefono}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_telefono}"/>
-                    </div>
-                </div>
-                <div class="col-md-4 px-1">    
-                     <div class="form-group">     
-                    <h:outputLabel class="label" value="#{bundle.CreateMotociclistasLabel_email}" for="email" />
-                    <h:inputText class="form-control" id="email" value="#{motociclistasController.selected.email}" title="#{bundle.CreateMotociclistasTitle_email}" required="true" requiredMessage="#{bundle.CreateMotociclistasRequiredMessage_email}"/>
-                    </div>
-                </div>
-                <br />
-            </div>
-                <h:commandLink class="btn btn-primary btn-fill pull-right" action="#{motociclistasController.create}" value="#{bundle.CreateMotociclistasSaveLink}" />
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>    
+                </div>    
                 <br />
                 <br />
                 <h:commandLink class="btn btn-secondary" action="#{motociclistasController.prepareList}" value="#{bundle.CreateMotociclistasShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.CreateMotociclistasIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

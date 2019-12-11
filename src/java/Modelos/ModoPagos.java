@@ -7,6 +7,7 @@ package Modelos;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javax.enterprise.context.SessionScoped;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,6 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "modo_pagos")
 @XmlRootElement
+@SessionScoped
 @NamedQueries({
     @NamedQuery(name = "ModoPagos.findAll", query = "SELECT m FROM ModoPagos m")
     , @NamedQuery(name = "ModoPagos.findByIdModopago", query = "SELECT m FROM ModoPagos m WHERE m.idModopago = :idModopago")
@@ -124,7 +126,7 @@ public class ModoPagos implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelos.ModoPagos[ idModopago=" + idModopago + " ]";
+        return name;
     }
     
 }

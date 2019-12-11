@@ -48,17 +48,15 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProductosTitle_idCategoria}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idCategoria}"/>
+                            <h:outputText value="#{item.idCategoria.name}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{productosController.prepareView}" value="#{bundle.ListProductosViewLink}"/>
+                            <h:commandLink class="btn btn-warning btn-fill pull-right" action="#{productosController.prepareEdit}" value="#{bundle.ListProductosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{productosController.prepareEdit}" value="#{bundle.ListProductosEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{productosController.destroy}" value="#{bundle.ListProductosDestroyLink}"/>
+                            <h:commandLink class="btn btn-info btn-fill pull-right" action="#{productosController.destroy}" value="#{bundle.ListProductosDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
@@ -66,7 +64,6 @@
                 <h:commandLink class="btn btn-secondary" action="#{productosController.prepareCreate}" value="#{bundle.ListProductosCreateLink}"/>
                 <br />
                 <br />
-                <h:link class="btn btn-warning" outcome="/index" value="#{bundle.ListProductosIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
