@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,8 +29,11 @@ public class DetallesPagosFacade extends AbstractFacade<DetallesPagos> {
     public DetallesPagosFacade() {
         super(DetallesPagos.class);
     }
-   // public List<Pagos> Consultar()
-    //{
-        
-    //}
+   public List<DetallesPagos> ConsultarIdPago(Pagos idPago)
+    {
+        Query consulta = em.createNamedQuery("DetallesPagos.findByPago", DetallesPagos.class)
+                .setParameter("idPago", idPago);
+        List<DetallesPagos> lista = consulta.getResultList();
+        return lista;
+    }
 }

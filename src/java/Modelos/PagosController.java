@@ -28,7 +28,8 @@ public class PagosController implements Serializable {
     private List<Productos> productos;
     private List<Pagos> pagos;
     private Pagos editarPago;
-    
+    private List<DetallesPagos> detallePagos;
+
     @EJB
     private Modelos.PagosFacade ejbFacade;
     @EJB
@@ -53,6 +54,7 @@ public class PagosController implements Serializable {
     }
 
     public void setEditarPago(Pagos editarPago) {
+
         this.editarPago = editarPago;
     }
 
@@ -99,30 +101,39 @@ public class PagosController implements Serializable {
             ejbFacadeDetalle.create(detalle);
         }
         //productos.clear();
-            productos = null;
+        productos = null;
         //this.productos= new ArrayList<>();
-        
+
         return "List";
     }
-    public String eliminar(Pagos pagos)
-    {
+
+    public String eliminar(Pagos pagos) {
         getFacade().remove(pagos);
         return "List";
     }
-    public String editar(Pagos pagos)
-    {
-        editarPago= pagos;
-        
+
+    public String editar(Pagos pagos) {
+        editarPago = pagos;
+
         return "Edit";
     }
-    public String guardar()
-    {
+
+    public String guardar() {
         getFacade().edit(editarPago);
         return "List";
     }
 
+    public List<DetallesPagos> getDetallePagos() {
+        detallePagos = ejbFacadeDetalle.ConsultarIdPago(editarPago);
+        return detallePagos;
+    }
+
+    public void setDetallePagos(List<DetallesPagos> detallePagos) {
+        this.detallePagos = detallePagos;
+    }
+
     public List<Pagos> getPagos() {
-       pagos= getFacade().findAll();
+        pagos = ejbFacade.ConsultarPagos();
         return pagos;
     }
 
@@ -145,8 +156,6 @@ public class PagosController implements Serializable {
     public void setProductos(List<Productos> productos) {
         this.productos = productos;
     }
-
-
 
     public String prepareList() {
         recreateModel();

@@ -5,9 +5,11 @@
  */
 package Modelos;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,5 +29,10 @@ public class PagosFacade extends AbstractFacade<Pagos> {
     public PagosFacade() {
         super(Pagos.class);
     }
-    
+
+    public List<Pagos> ConsultarPagos() {
+        Query consulta = em.createNamedQuery("Pagos.findAll", Pagos.class);
+        List<Pagos> lista = consulta.getResultList();
+        return lista;
+    }
 }
